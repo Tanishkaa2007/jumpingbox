@@ -1,4 +1,4 @@
-var canvas,ball,surface1,surface2,surface3,surface4,topedge,bottomedge,rightedge,leftedge;
+var canvas,ball,surface1,surface2,surface3,surface4;
 var music;
 
 function preload(){
@@ -26,7 +26,7 @@ function setup(){
  surface4 = createSprite(705,570,200,20);
  surface4.shapeColor = "aqua";
 
- topedge = createSprite(400,5,800,10);
+/* topedge = createSprite(400,5,800,10);
  topedge.shapeColor = "black";
 
  bottomedge = createSprite(400,595,800,10);
@@ -36,7 +36,7 @@ function setup(){
  rightedge.shapeColor = "black";
 
  leftedge = createSprite(795,300,10,600);
- leftedge.shapeColor = "black";
+ leftedge.shapeColor = "black";*/
 }
 
 function draw() {
@@ -126,9 +126,9 @@ function draw() {
      ball.bounceOff(surface3);
      ball.bounceOff(surface4);
      ball.bounceOff(edges);
-     edges = createEdgeSprites();
-     drawSprites();
      
+     drawSprites();
+     edges = createEdgeSprites();
     
      
      //createEdgeSprites();
