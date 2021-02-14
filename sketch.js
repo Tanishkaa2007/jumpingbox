@@ -8,7 +8,7 @@ function preload(){
 
 function setup(){
     canvas = createCanvas(800,600);
-
+    edges = createEdgeSprites();
  ball = createSprite(random(20,750),300,20,20);
  ball.shapeColor = "white";
  ball.velocityX = 5;
@@ -25,7 +25,7 @@ function setup(){
 
  surface4 = createSprite(705,570,200,20);
  surface4.shapeColor = "aqua";
-
+ 
 /* topedge = createSprite(400,5,800,10);
  topedge.shapeColor = "black";
 
@@ -42,7 +42,7 @@ function setup(){
 function draw() {
     background(0);
 
-
+    
 
      /*if(surface1.isTouching(ball) && ball.bounceOff(surface1)){
         ball.shapeColor = "violet";
@@ -82,7 +82,8 @@ function draw() {
          ball.shapeColor = "white";
      }*/
 
-    
+     
+
      if(surface1.isTouching(ball) ){
         ball.shapeColor = "violet";
         ball.velocityX = 0;
@@ -121,15 +122,13 @@ function draw() {
       ball.shapeColor = "white";
      }
      
+    
      ball.bounceOff(surface1);
      ball.bounceOff(surface2);
      ball.bounceOff(surface3);
      ball.bounceOff(surface4);
-     ball.bounceOff(edges);
-     
      drawSprites();
-     edges = createEdgeSprites();
-    
+     ball.bounceOff(edges);
      
      //createEdgeSprites();
 }
