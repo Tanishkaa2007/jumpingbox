@@ -82,15 +82,7 @@ function draw() {
          ball.shapeColor = "white";
      }*/
 
-     ball.bounceOff(surface1);
-     ball.bounceOff(surface2);
-     ball.bounceOff(surface3);
-     ball.bounceOff(surface4);
-     bounceOff(ball,topedge);
-     bounceOff(ball,bottomedge);
-     bounceOff(ball,rightedge);
-     bounceOff(ball,leftedge);
-
+    
      if(surface1.isTouching(ball) ){
         ball.shapeColor = "violet";
         ball.velocityX = 0;
@@ -129,8 +121,15 @@ function draw() {
       ball.shapeColor = "white";
      }
      
-    
+     ball.bounceOff(surface1);
+     ball.bounceOff(surface2);
+     ball.bounceOff(surface3);
+     ball.bounceOff(surface4);
+     ball.bounceOff(edges);
+     edges = createEdgeSprites();
      drawSprites();
+     
+    
      
      //createEdgeSprites();
 }
