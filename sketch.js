@@ -1,8 +1,8 @@
 var canvas,ball,surface1,surface2,surface3,surface4;
-var music;
+var music1;
 
 function preload(){
-    //music = loadSound("music.mp3");
+    music1 = loadSound("music.mp3");
 }
 
 
@@ -11,8 +11,8 @@ function setup(){
     edges = createEdgeSprites();
  ball = createSprite(random(20,750),300,20,20);
  ball.shapeColor = "white";
- ball.velocityX = 5;
- ball.velocityY = 5;
+ ball.velocityX = 6;
+ ball.velocityY = 6;
  
  surface1 = createSprite(105,570,200,20);
  surface1.shapeColor = "violet";
@@ -26,17 +26,6 @@ function setup(){
  surface4 = createSprite(705,570,200,20);
  surface4.shapeColor = "aqua";
  
-/* topedge = createSprite(400,5,800,10);
- topedge.shapeColor = "black";
-
- bottomedge = createSprite(400,595,800,10);
- bottomedge.shapeColor = "black";
-
- rightedge = createSprite(5,300,10,600);
- rightedge.shapeColor = "black";
-
- leftedge = createSprite(795,300,10,600);
- leftedge.shapeColor = "black";*/
 }
 
 function draw() {
@@ -84,7 +73,7 @@ function draw() {
 
      
 
-     if(surface1.isTouching(ball) ){
+     /*if(surface1.isTouching(ball) ){
         ball.shapeColor = "violet";
         ball.velocityX = 0;
         ball.velocityY = 0;
@@ -120,20 +109,46 @@ function draw() {
      }
      else{
       ball.shapeColor = "white";
+     }*/
+
+     if(surface1.isTouching(ball) && ball.bounceOff(surface1)){
+        
+        ball.shapeColor = "violet";
+        music1.play();
+     }
+   
+     
+     if(surface2.isTouching(ball) && ball.bounceOff(surface2)){ 
+         
+         ball.shapeColor = "hotpink";
+         ball.velocityX = 0;
+         ball.velocityY = 0;
+         music1.stop();
      }
      
+
+     if(surface3.isTouching(ball) && ball.bounceOff(surface3)){
+        ball.shapeColor = "yellow";
+     }
+     
+
+     if(surface4.isTouching(ball) && ball.bounceOff(surface4)){
+       ball.shapeColor = "aqua";
+    }
+
     
      ball.bounceOff(surface1);
      ball.bounceOff(surface2);
      ball.bounceOff(surface3);
      ball.bounceOff(surface4);
-     drawSprites();
      ball.bounceOff(edges);
+     drawSprites();
+     
      
      //createEdgeSprites();
 }
 
-function isTouching(ob1,ob2){
+/*function isTouching(ob1,ob2){
     if( ob1.x - ob2.x < ob1.width/2 + ob2.width/2
         && ob2.x - ob1.x < ob1.width/2 + ob2.width/2
         && ob1.y - ob2.y < ob1.height/2 + ob2.height/2 
@@ -158,4 +173,4 @@ function bounceOff(ob1,ob2){
        ob1.velocityY = ob1.velocityY * (-1);
        ob2.velocityY = ob2.velocityY * (-1);
     }
-}
+}*/
